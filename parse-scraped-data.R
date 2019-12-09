@@ -19,9 +19,5 @@ parsed_ships %>% write_rds(here("data/parsed_ships.rds"))
 parsed_owners <- future_map(scrapes, ~parse_html_owners(.x), .id = "html", .progress = T)
 parsed_owners %>% write_rds(here("data/parsed_owners.rds"))
 
-# eda
-scrapes_parsed %>% 
-  count(vessel_type, sort = T)
-
 scrapes_parsed %>% 
   write_rds(here("data/scrapes_parsed.rds"))
